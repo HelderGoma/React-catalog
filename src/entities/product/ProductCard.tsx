@@ -34,7 +34,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     }
     return (
         <div className={styles.card}>
-            <img src={product.image} alt={product.title} />
+            <img src={product.image || undefined} alt={product.title} />
             <h3>{product.title}</h3>
             <p className={styles.description}>{product.description}</p>
             <p className={styles.price}>${product.price}</p>

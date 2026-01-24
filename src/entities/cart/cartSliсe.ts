@@ -5,8 +5,27 @@ interface CartState {
   items: CartItem[]
 }
 
+const loadCart = (): CartItem[] => {
+  if (typeof window === 'undefined') return []
+
+  try {
+    const data = localStorage.getItem('cart')
+    return data ? JSON.parse(data) : []
+  } catch {
+    return []
+  }
+}
+
+const saveCart = (items: CartItem[]) => {
+  if (typeof window === 'undefined') return
+
+  try {
+    localStorage.setItem('cart', JSON.stringify(items))
+  } catch { }
+}
+
 const initialState: CartState = {
-  items: JSON.parse(localStorage.getItem('cart') || '[]')
+  items: loadCart(),
 }
 
 const cartSlice = createSlice({
@@ -20,7 +39,7 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ ...action.payload, quantity: 1 })
       }
-      localStorage.setItem('cart', JSON.stringify(state.items))
+      saveCart(state.items)
     },
 
     changeQuantity(
@@ -31,14 +50,14 @@ const cartSlice = createSlice({
       if (item && action.payload.quantity >= 1) {
         item.quantity = action.payload.quantity
       }
-      localStorage.setItem('cart', JSON.stringify(state.items))
+      saveCart(state.items)
     },
 
     removeFromCart(state, action: PayloadAction<number>) {
       state.items = state.items.filter(i => i.id !== action.payload)
-      localStorage.setItem('cart', JSON.stringify(state.items))
-    }
-  }
+      saveCart(state.items)
+    },
+  },
 })
 
 export const { addToCart, changeQuantity, removeFromCart } = cartSlice.actions
