@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# React Catalog with Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Мини-приложение на React для просмотра каталога товаров с корзиной.  
 
-Currently, two official plugins are available:
+## Функционал
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Каталог товаров с карточками  
+- Фильтр по категориям и поиск с debounce  
+- Сортировка товаров (по цене и названию)  
+- Пагинация (12 товаров на странице)  
+- Корзина:
+  - Добавление/удаление товаров
+  - Изменение количества
+  - Подсчет общей стоимости
+  - Сохранение в localStorage
+- UI/UX:
+  - Skeleton loader при загрузке
+  - Toast-уведомления
+  - Адаптивная верстка (mobile/desktop)
+  - Темная тема
 
-## React Compiler
+## Технологии
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React**
+- **TypeScript**  
+- **Redux Toolkit** 
+- **CSS Modules**  
+- **React Router** 
+- **FakeStore API** 
+- **Lodash**   
+- **Vitest + Testing Library** 
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Установка и запуск
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. Клонируем репозиторий:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/<YOUR_USERNAME>/react-catalog.git
+cd react-catalog
 ```
+2. Устанавливаем зависимости:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+3. Запускаем приложение:
+
+```bash
+npm run dev
+``` 
+4. Открываем [http://localhost:5173] в браузере.
+
+5. Запускаем тесты:
+
+```bash
+npx vitest
+``` 
+
+
