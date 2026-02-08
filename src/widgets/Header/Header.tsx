@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux'
 import type { RootState } from '../../app/store'
 import { useEffect, useState } from 'react'
 import styles from './Header.module.css'
-import { CiLight } from "react-icons/ci";
-import { MdDarkMode } from "react-icons/md";
 const Header = () => {
     const totalCount = useSelector((state: RootState) =>
         state.cart.items.reduce((sum, item) => sum + item.quantity, 0)
@@ -40,8 +38,13 @@ const Header = () => {
                     {totalCount > 0 && <span className={styles.badge}>{totalCount}</span>}
                 </Link>
 
-                <button onClick={toggleTheme} className={styles.themeBtn}>
-                    {isDark ? <MdDarkMode /> : <CiLight /> }
+                <button
+                    className={`${styles.themeSwitch} ${isDark ? styles.dark : ""}`}
+                    onClick={toggleTheme}
+                >
+                    <div className={styles.switchCircle}>
+                        {isDark ? "🌙" : "☀️"}
+                    </div>
                 </button>
             </nav>
         </header>
