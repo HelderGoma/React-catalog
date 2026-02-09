@@ -1,13 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import CatalogPage from './pages/CatalogPage/CatalogPage'
-import CartPage from './pages/CartPage/CartPage'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import Header from './widgets/Header/Header'
+import React from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import CatalogPage from './pages/CatalogPage/CatalogPage';
+import CartPage from './pages/CartPage/CartPage';
+import Header from './widgets/Header/Header';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <Routes>
         <Route path="/" element={<CatalogPage />} />
@@ -23,8 +24,8 @@ function App() {
         pauseOnHover
         theme="light"
       />
-    </BrowserRouter>
-  )
-}
+    </HashRouter>
+  );
+};
 
-export default App
+export default App;
