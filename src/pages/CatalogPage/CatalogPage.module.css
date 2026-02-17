@@ -13,7 +13,7 @@
 .controls select {
     padding: 8px 12px;
     border-radius: 8px;
-    border: 1px solid #d1d5db;
+    border: none;
     font-size: 14px;
     background: var(--card-bg);
     color: var(--text);
@@ -21,14 +21,22 @@
 
 }
 
+.controls select:focus {
+    outline: none;
+}
+
 .controls input {
     padding: 8px 12px;
     border-radius: 8px;
-    border: 1px solid #d1d5db;
+    border: none;
     font-size: 14px;
     width: 1073px;
     background: var(--card-bg);
     color: var(--text);
+}
+
+.controls input:focus {
+    outline: none;
 }
 
 .grid {
@@ -64,16 +72,15 @@
 .pagination button {
     padding: 6px 10px;
     border-radius: 6px;
-    border: 1px solid #d1d5db;
-    background: #f9fafb;
+    border: none;
     cursor: pointer;
     transition: background 0.2s;
-    background: var(--pgn-btn);
+    background: #66a5ad;
     color: var(--button-text);
 }
 
 .pagination button:hover {
-    background: #e5e7eb;
+    background: #c4dfe6;
 }
 
 .activePage {

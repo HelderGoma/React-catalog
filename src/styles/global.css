@@ -5,14 +5,14 @@
 }
 
 :root {
-    --bg: #ffffff;
+    --bg: #c4dfe6;
     --text: #111827;
     --card-bg: #f9fafb;
-    --button-bg: #0a6e2c;
+    --button-bg: #07575b;
     --button-text: #ffffff;
-    --header-bg: #f3f4f6;
+    --header-bg: #003b46;
     --link-color: #1f2937;
-    --link-hover: #9aa7c1;
+    --link-hover: #66a5ad;
     --theme-active: #0f172a;
     --theme-color: #f3f4f6;
     --pgn-btn: #747474;
